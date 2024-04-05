@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import NavBar from './NavBar'; // Import NavBar component
+import NavBar from './NavBar';
 import { Typography } from '@mui/material';
 
 const List = () => {
@@ -12,7 +12,7 @@ const List = () => {
 
   const fetchlistData = async () => {
     try {
-      const response = await axios.get('http://localhost:9453/viewlist');
+      const response = await axios.get('http://localhost:9453/viewreg/' );
       setListData(response.data);
     } catch (error) {
       console.error('Error fetching List data:', error);

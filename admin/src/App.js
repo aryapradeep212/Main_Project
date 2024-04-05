@@ -11,6 +11,7 @@ import EditCompanyForm from './components/EditCompany';
 import HomePage from './components/Home';
 import NavBar from './components/NavBar';
 import UserPage from './components/UserPage';
+import ViewList from './components/ViewList';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <Route path="/addalumini" element={<AddAlumniForm/>}/> 
         <Route path="/addfaculty" element={<AddFacultyForm/>}/>
         <Route path="/editcompany" element={<EditCompanyForm/>}/>
+        <Route path="/viewlist" element={<ViewList/>}/>
       </Routes>
     </div>
   );

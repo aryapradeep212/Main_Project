@@ -9,6 +9,7 @@ const adminModel = require('./adminModel');
 const companyModel = require('./companyModel');
 const aluminiModel = require('./aluminiModel');
 const facultyModel = require('./facultyModel');
+const RegModel = require('./RegModel');
 
 // App Initialization
 const JWT_SECRET = "AryaPradeep212";
@@ -360,6 +361,40 @@ app.put('/updatefaculty/:id', async (req, res) => {
   let id = req.params.id;
   var result = await facultyModel.findByIdAndUpdate(id, req.body);
   res.send("Updated");
+});
+
+
+app.post('/registeruser/:id', async (req, res) => {
+  let id = req.params.id;
+  const { reg_number, email, firstName, lastName, dob, department, phone, arrers } = req.body;
+  await companyModel.findByIdAndUpdate(id, {
+    $push: {
+      users: {
+        reg_number,
+        email,
+        firstName,
+        lastName,
+        dob,
+        department,
+        phone,
+        arrers,
+      },
+    },
+  });
+  res.send("User Added");
+  
+})
+
+app.get('/viewreg/:id', async (req, res) => {
+  try {
+    // get the users list from the company user array
+    const { id } = req.params;
+    const data = await companyModel.findById(id);
+    res.send(data.users);
+  } catch (error) {
+    console.log(error);
+    res.send({ status: 'error' });
+  }
 });
 
 // Port Checking
