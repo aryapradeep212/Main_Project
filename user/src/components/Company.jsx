@@ -30,7 +30,7 @@ const CompanyCard = () => {
   }, []);
 
   const goToApplyPage = () => {
-    navigate("/apply"); // This should match the path you defined for the Apply component in your routes
+    navigate("/apply/" ); // This should match the path you defined for the Apply component in your routes
   };
 
   return (

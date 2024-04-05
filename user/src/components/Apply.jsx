@@ -10,7 +10,7 @@ import {
 import NavBar from "./NavBar";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-
+// apply/:id
 const Apply = () => {
   const { id } = useParams();
 
