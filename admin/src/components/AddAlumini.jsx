@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import NavBar from './NavBar';
-import { Typography, TextField, Button } from '@mui/material'; // Import TextField and Button from Material-UI
+import React, { useState } from "react";
+import axios from "axios";
+import NavBar from "./NavBar";
+import { Typography, TextField, Button } from "@mui/material"; // Import TextField and Button from Material-UI
 
 const AddAlumniForm = () => {
   const [alumniData, setAlumniData] = useState({
-    name: '',
-    company: '',
-    department: '',
-    batch: '',
+    name: "",
+    company: "",
+    department: "",
+    batch: "",
   });
 
   const handleChange = (e) => {
@@ -23,20 +23,23 @@ const AddAlumniForm = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:9453/addalumini', alumniData);
+      const response = await axios.post(
+        "http://localhost:9453/addalumini",
+        alumniData,
+      );
       console.log(response.data);
       // Show alert after successful addition
-      window.alert('Alumni added successfully!');
+      window.alert("Alumni added successfully!");
       // Clear the form fields after successful addition
       setAlumniData({
-        name: '',
-        company: '',
-        department: '',
-        batch: '',
+        name: "",
+        company: "",
+        department: "",
+        batch: "",
       });
     } catch (error) {
       console.error(error.response.data);
-      window.alert('Failed to add alumni. Please try again.');
+      window.alert("Failed to add alumni. Please try again.");
     }
   };
 
@@ -44,7 +47,11 @@ const AddAlumniForm = () => {
     <>
       <NavBar />
       <form style={formStyle} onSubmit={handleSubmit}>
-        <Typography variant='h3' style={{ marginTop: '200px' }}>Add Alumni</Typography><br /><br />
+        <Typography variant="h3" style={{ marginTop: "200px" }}>
+          Add Alumni
+        </Typography>
+        <br />
+        <br />
         <div style={formGroupStyle}>
           <TextField
             label="Alumni Name"
@@ -86,7 +93,9 @@ const AddAlumniForm = () => {
           />
         </div>
         <div>
-          <Button type="submit" variant="contained" color="primary">Add Alumni</Button>
+          <Button type="submit" variant="contained" color="primary">
+            Add Alumni
+          </Button>
         </div>
       </form>
     </>
@@ -95,12 +104,12 @@ const AddAlumniForm = () => {
 
 // Styles
 const formStyle = {
-  maxWidth: '400px',
-  margin: 'auto',
+  maxWidth: "400px",
+  margin: "auto",
 };
 
 const formGroupStyle = {
-  marginBottom: '15px',
+  marginBottom: "15px",
 };
 
 export default AddAlumniForm;

@@ -4,18 +4,15 @@ let Schema = mongoose.Schema;
 
 //Schema Creation of admin login
 const adminSchema = new Schema({
-
-  username:
-  {
+  username: {
     type: String,
     unique: true,
-    required: true
+    required: true,
   },
-  password:
-  {
+  password: {
     type: String,
-    required: true
-  }
+    required: true,
+  },
 });
 
 const adminModel = mongoose.model("admin", adminSchema);

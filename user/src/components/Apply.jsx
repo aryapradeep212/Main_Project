@@ -1,9 +1,19 @@
 import { useState, useEffect } from "react";
-import { Box, Container, Grid, Typography, TextField, Button } from '@mui/material';
-import NavBar from './NavBar';
-import axios from 'axios';
+import {
+  Box,
+  Container,
+  Grid,
+  Typography,
+  TextField,
+  Button,
+} from "@mui/material";
+import NavBar from "./NavBar";
+import axios from "axios";
+import { useParams } from "react-router-dom";
 
 const Apply = () => {
+  const { id } = useParams();
+
   const [user, setUser] = useState({
     reg_number: "",
     email: "",
@@ -18,7 +28,7 @@ const Apply = () => {
   const handleChange = (event) => {
     setUser({
       ...user,
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
     });
   };
 
@@ -26,7 +36,7 @@ const Apply = () => {
     event.preventDefault();
     try {
       const token = localStorage.getItem("token");
-      await axios.put("http://localhost:9453/updateuser", user, {
+      await axios.post("http://localhost:9453/registeruser/" + id, user, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -59,9 +69,13 @@ const Apply = () => {
   return (
     <>
       <NavBar />
-      <Container style={{ textAlign: 'center', marginTop: '100px', fontSize: '18px' }}>
+      <Container
+        style={{ textAlign: "center", marginTop: "100px", fontSize: "18px" }}
+      >
         <Box sx={{ marginTop: 4 }}>
-          <Typography variant="h2" sx={{ textAlign: 'center', mb: 2 }}>Apply</Typography>
+          <Typography variant="h2" sx={{ textAlign: "center", mb: 2 }}>
+            Apply
+          </Typography>
           <form onSubmit={handleSubmit}>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
@@ -137,7 +151,7 @@ const Apply = () => {
               </Grid>
               <Grid item xs={12}>
                 <Button variant="contained" color="primary" type="submit">
-                 Apply
+                  Apply
                 </Button>
               </Grid>
             </Grid>
@@ -146,6 +160,6 @@ const Apply = () => {
       </Container>
     </>
   );
-}
+};
 
 export default Apply;

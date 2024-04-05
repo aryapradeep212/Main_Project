@@ -3,25 +3,22 @@ const mongoose = require("mongoose");
 let Schema = mongoose.Schema;
 
 const aluminiSchema = new Schema({
-  name:
-  {
+  name: {
     type: String,
     required: true,
   },
-  company:
-  {
+  company: {
     type: String,
     required: true,
   },
-  department:
-  {
+  department: {
     type: String,
     required: true,
   },
   batch: {
     type: String,
     required: true,
-  }
+  },
 });
 
 const aluminiModel = mongoose.model("alumini", aluminiSchema);

@@ -12,7 +12,7 @@ const Landingpage = () => {
         <p4>The Career You Need Is Here</p4>
 
         <div className="button-container">
-          <button className="button primary-button"> 
+          <button className="button primary-button">
             <Link
               to={"/login"}
               style={{ textDecoration: "none", color: "white" }}

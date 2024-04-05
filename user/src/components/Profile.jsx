@@ -2,18 +2,17 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import NavBar from "./NavBar";
-import './Profile.css'; // Import CSS file for styling
+import "./Profile.css"; // Import CSS file for styling
 
 const Profile = () => {
   const [user, setUser] = useState({
     firstName: "",
     lastName: "",
     email: "",
-    dob: "", 
+    dob: "",
     department: "",
     phone: "",
-    arrers:"",
-   
+    arrers: "",
   });
 
   const [loading, setLoading] = useState(true);
@@ -33,7 +32,7 @@ const Profile = () => {
       });
       setUser({
         ...response.data,
-        dob: new Date(response.data.dob).toLocaleDateString() 
+        dob: new Date(response.data.dob).toLocaleDateString(),
       });
     } catch (error) {
       console.error("Error fetching user data:", error);
@@ -46,8 +45,12 @@ const Profile = () => {
   return (
     <>
       <NavBar />
-      <div className="profile-container"> {/* Apply profile-container class */}
-        <div className="profile-card"> {/* Apply profile-card class */}
+      <div className="profile-container">
+        {" "}
+        {/* Apply profile-container class */}
+        <div className="profile-card">
+          {" "}
+          {/* Apply profile-card class */}
           {loading ? (
             <p>Loading...</p>
           ) : error ? (
@@ -56,17 +59,19 @@ const Profile = () => {
             <>
               <h2>PROFILE PAGE</h2>
               <br />
-              <h2>Name: {user.firstName} {user.lastName}</h2>
+              <h2>
+                Name: {user.firstName} {user.lastName}
+              </h2>
               <h4>Email: {user.email}</h4>
               <h3>Date of Birth: {user.dob}</h3>
               <h3>Department: {user.department}</h3>
               <h3>Phone: {user.phone}</h3>
               <h3>No. of Arrers: {user.arrers}</h3>
-              <div className="profile-buttons"> {/* Apply profile-buttons class */}
+              <div className="profile-buttons">
+                {" "}
+                {/* Apply profile-buttons class */}
                 <Link to={"/edit"}>
-                  <button className="edit-button">
-                    Edit Profile
-                  </button>
+                  <button className="edit-button">Edit Profile</button>
                 </Link>
               </div>
             </>
