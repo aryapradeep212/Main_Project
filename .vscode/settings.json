@@ -1,5 +1,36 @@
 {
     "cSpell.words": [
-        "fetchlist"
+        "addalumini",
+        "addcompany",
+        "addfaculty",
+        "adminlogin",
+        "alumini",
+        "Alumini",
+        "arrers",
+        "Arya",
+        "aryapradeep",
+        "createadmin",
+        "deletealumini",
+        "deletecompany",
+        "deletefaculty",
+        "deleteuser",
+        "fetchlist",
+        "Kolkata",
+        "Pradeep",
+        "registeruser",
+        "singlealumini",
+        "singlecompany",
+        "singlefaculty",
+        "singleuser",
+        "updatealumini",
+        "updatecompany",
+        "updatefaculty",
+        "updateuser",
+        "userlogin",
+        "viewalumini",
+        "viewcompany",
+        "viewfaculty",
+        "viewreg",
+        "viewuser"
     ]
 }

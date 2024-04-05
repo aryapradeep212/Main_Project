@@ -9,7 +9,6 @@ const adminModel = require('./adminModel');
 const companyModel = require('./companyModel');
 const aluminiModel = require('./aluminiModel');
 const facultyModel = require('./facultyModel');
-const RegModel = require('./RegModel');
 
 // App Initialization
 const JWT_SECRET = "AryaPradeep212";
