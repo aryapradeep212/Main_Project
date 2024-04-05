@@ -362,6 +362,40 @@ app.put('/updatefaculty/:id', async (req, res) => {
   res.send("Updated");
 });
 
+
+app.post('/registeruser/:id', async (req, res) => {
+  let id = req.params.id;
+  const { reg_number, email, firstName, lastName, dob, department, phone, arrers } = req.body;
+  await companyModel.findByIdAndUpdate(id, {
+    $push: {
+      users: {
+        reg_number,
+        email,
+        firstName,
+        lastName,
+        dob,
+        department,
+        phone,
+        arrers,
+      },
+    },
+  });
+  res.send("User Added");
+  
+})
+
+app.get('/viewreg/:id', async (req, res) => {
+  try {
+    // get the users list from the company user array
+    const { id } = req.params;
+    const data = await companyModel.findById(id);
+    res.send(data.users);
+  } catch (error) {
+    console.log(error);
+    res.send({ status: 'error' });
+  }
+});
+
 // Port Checking
 app.listen(port, () => {
   console.log('App listening on port 9453');
