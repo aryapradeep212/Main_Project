@@ -1,43 +1,42 @@
 .profile-container {
-    display: flex;
-    justify-content: center;
-  }
-  
-  .profile-card {
-    width: 500px;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-    margin-top: 100px;
-  }
-  
-  .profile-card h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  
-  .profile-card h3,
-  .profile-card h4 {
-    font-size: 18px;
-    margin-bottom: 10px;
-  }
-  
-  .profile-buttons {
-    margin-top: 20px;
-  }
-  
-  .edit-button {
-    padding: 10px 20px;
-    border: none;
-    background-color: #00bcd4;
-    color: #fff;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  
-  .edit-button:hover {
-    background-color: #0097a7;
-  }
-  
+  display: flex;
+  justify-content: center;
+}
+
+.profile-card {
+  width: 500px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  margin-top: 100px;
+}
+
+.profile-card h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.profile-card h3,
+.profile-card h4 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.profile-buttons {
+  margin-top: 20px;
+}
+
+.edit-button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #00bcd4;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.edit-button:hover {
+  background-color: #0097a7;
+}

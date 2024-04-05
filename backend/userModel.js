@@ -4,34 +4,30 @@ let Schema = mongoose.Schema;
 
 //Schema Creation of User Details
 const userSchema = new Schema({
-  reg_number:
-  {
+  reg_number: {
     type: Number,
     required: true,
-    unique: true
+    unique: true,
   },
-  email:
-  {
+  email: {
     type: String,
     unique: true,
-    required: true
+    required: true,
   },
   firstName: String,
   lastName: String,
   dob: Date,
   department: String,
   phone: Number,
-  password:
-  {
+  password: {
     type: String,
-    required: true
+    required: true,
   },
   arrers: Number,
-  blocked:
-  {
+  blocked: {
     type: Boolean,
-    default: false
-  }
+    default: false,
+  },
 });
 
 const userModel = mongoose.model("user", userSchema);

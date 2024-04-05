@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import styles from "./SignUp.module.css"; 
+import styles from "./SignUp.module.css";
 
 const Signup = () => {
   const [data, setData] = useState({
@@ -50,7 +50,6 @@ const Signup = () => {
     }
     setError("");
 
-
     // Making an HTTP request using axios
     try {
       const response = await axios.post("http://localhost:9453/register", data);
@@ -61,14 +60,16 @@ const Signup = () => {
         window.location.href = "/login";
       } else if (response.data.status === "User Exists") {
         alert("Invalid email. Please check your email.");
-      } else if (response.status === 400 || response.data.error === "User Exists") {
+      } else if (
+        response.status === 400 ||
+        response.data.error === "User Exists"
+      ) {
         alert("User already exists. Please login.");
       }
     } catch (error) {
       console.log(error);
       setError("An error occurred. Please try again.");
     }
-    
   };
 
   // JSX for the component
@@ -138,9 +139,13 @@ const Signup = () => {
               required
               className={styles.input}
             >
-              <option value="" disabled>Select Department</option>
+              <option value="" disabled>
+                Select Department
+              </option>
               {departments.map((dept, index) => (
-                <option key={index} value={dept}>{dept}</option>
+                <option key={index} value={dept}>
+                  {dept}
+                </option>
               ))}
             </select>
             <input

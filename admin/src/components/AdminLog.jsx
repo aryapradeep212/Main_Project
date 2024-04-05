@@ -13,22 +13,31 @@ const AdminLog = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await axios.post("http://localhost:9453/adminlogin", data_)
+    await axios
+      .post("http://localhost:9453/adminlogin", data_)
       .then((response) => {
         console.log(response.data.status);
-		if(response.data.status === "ok") {
-			alert("Login Successful");
-			localStorage.setItem("token", response.data.data)
-			window.location.href = "/home"
-		}
+        if (response.data.status === "ok") {
+          alert("Login Successful");
+          localStorage.setItem("token", response.data.data);
+          window.location.href = "/home";
+        }
       })
       .catch((error) => {
-		if (error.response || error.response.status || error.response.status === 403) {
-			alert("Access Denied");
-		  }
-		  if (error.response || error.response.status || error.response.status === 401) {
-			alert("Invalid Credentials!");
-		  }
+        if (
+          error.response ||
+          error.response.status ||
+          error.response.status === 403
+        ) {
+          alert("Access Denied");
+        }
+        if (
+          error.response ||
+          error.response.status ||
+          error.response.status === 401
+        ) {
+          alert("Invalid Credentials!");
+        }
       });
   };
 

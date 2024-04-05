@@ -1,7 +1,14 @@
 import { useState, useEffect } from "react";
-import { Box, Container, Grid, Typography, TextField, Button } from '@mui/material';
-import NavBar from './NavBar';
-import axios from 'axios';
+import {
+  Box,
+  Container,
+  Grid,
+  Typography,
+  TextField,
+  Button,
+} from "@mui/material";
+import NavBar from "./NavBar";
+import axios from "axios";
 
 const EditProfile = () => {
   const [user, setUser] = useState({
@@ -12,13 +19,13 @@ const EditProfile = () => {
     dob: "",
     department: "",
     phone: "",
-    arrers: ""
+    arrers: "",
   });
 
   const handleChange = (event) => {
     setUser({
       ...user,
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
     });
   };
 
@@ -59,9 +66,13 @@ const EditProfile = () => {
   return (
     <>
       <NavBar />
-      <Container style={{ textAlign: 'center', marginTop: '100px', fontSize: '18px' }}>
+      <Container
+        style={{ textAlign: "center", marginTop: "100px", fontSize: "18px" }}
+      >
         <Box sx={{ marginTop: 4 }}>
-          <Typography variant="h2" sx={{ textAlign: 'center', mb: 2 }}>Edit Profile</Typography>
+          <Typography variant="h2" sx={{ textAlign: "center", mb: 2 }}>
+            Edit Profile
+          </Typography>
           <form onSubmit={handleSubmit}>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
@@ -138,6 +149,6 @@ const EditProfile = () => {
       </Container>
     </>
   );
-}
+};
 
 export default EditProfile;

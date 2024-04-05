@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import NavBar from './NavBar';
-import Typography from '@mui/material/Typography';
-import styles from './AluminiList.module.css';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import NavBar from "./NavBar";
+import Typography from "@mui/material/Typography";
+import styles from "./AluminiList.module.css";
 
 const FacultyList = () => {
   const [facultyList, setFacultyList] = useState([]);
@@ -10,7 +10,7 @@ const FacultyList = () => {
   useEffect(() => {
     async function fetchFaculty() {
       try {
-        const response = await axios.get('http://localhost:9453/viewfaculty');
+        const response = await axios.get("http://localhost:9453/viewfaculty");
         setFacultyList(response.data);
       } catch (error) {
         console.error("Error fetching faculty details:", error);
@@ -23,7 +23,9 @@ const FacultyList = () => {
   return (
     <>
       <NavBar />
-      <Typography variant='h3' style={{ marginTop: "100px" }}>Faculty</Typography>
+      <Typography variant="h3" style={{ marginTop: "100px" }}>
+        Faculty
+      </Typography>
       <div className={styles.container}>
         {facultyList.map((faculty) => (
           <div key={faculty._id} className={styles.card}>

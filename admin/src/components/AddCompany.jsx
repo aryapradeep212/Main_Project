@@ -1,15 +1,24 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import { Typography, TextField, Button, Select, MenuItem, FormControl, InputLabel, Snackbar } from '@mui/material'; // Import Snackbar component from Material-UI
-import NavBar from './NavBar';
+import React, { useState } from "react";
+import axios from "axios";
+import {
+  Typography,
+  TextField,
+  Button,
+  Select,
+  MenuItem,
+  FormControl,
+  InputLabel,
+  Snackbar,
+} from "@mui/material"; // Import Snackbar component from Material-UI
+import NavBar from "./NavBar";
 
 const AddCompanyForm = () => {
   const [companyData, setCompanyData] = useState({
-    name: '',
-    address: '',
-    salary: '',
-    description: '',
-    status: 'Not Available',
+    name: "",
+    address: "",
+    salary: "",
+    description: "",
+    status: "Not Available",
   });
   const [openAlert, setOpenAlert] = useState(false); // State for alert
 
@@ -25,7 +34,10 @@ const AddCompanyForm = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:9453/addcompany', companyData);
+      const response = await axios.post(
+        "http://localhost:9453/addcompany",
+        companyData,
+      );
       console.log(response.data);
       setOpenAlert(true); // Open alert upon successful submission
     } catch (error) {
@@ -41,7 +53,11 @@ const AddCompanyForm = () => {
     <>
       <NavBar />
       <form style={formStyle} onSubmit={handleSubmit}>
-        <Typography variant='h3' style={{ marginTop: '200px' }}>Add Company</Typography><br /><br />
+        <Typography variant="h3" style={{ marginTop: "200px" }}>
+          Add Company
+        </Typography>
+        <br />
+        <br />
         <div style={formGroupStyle}>
           <TextField
             label="Company Name"
@@ -98,7 +114,9 @@ const AddCompanyForm = () => {
           </FormControl>
         </div>
         <div>
-          <Button type="submit" variant="contained" color="primary">Add Company</Button>
+          <Button type="submit" variant="contained" color="primary">
+            Add Company
+          </Button>
         </div>
       </form>
 
@@ -120,12 +138,12 @@ const AddCompanyForm = () => {
 
 // Styles (reuse the styles from the AddAlumniForm)
 const formStyle = {
-  maxWidth: '400px',
-  margin: 'auto',
+  maxWidth: "400px",
+  margin: "auto",
 };
 
 const formGroupStyle = {
-  marginBottom: '15px',
+  marginBottom: "15px",
 };
 
 export default AddCompanyForm;

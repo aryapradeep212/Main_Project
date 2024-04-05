@@ -1,15 +1,23 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import { Typography, TextField, Button, Dialog, DialogTitle, DialogContent, DialogActions } from '@mui/material'; // Import Dialog for alert dialog
-import NavBar from './NavBar';
+import React, { useState } from "react";
+import axios from "axios";
+import {
+  Typography,
+  TextField,
+  Button,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+} from "@mui/material"; // Import Dialog for alert dialog
+import NavBar from "./NavBar";
 
 const AddFacultyForm = () => {
   const [facultyData, setFacultyData] = useState({
-    name: '',
-    designation: '',
-    department: '',
-    email: '',
-    phone: '',
+    name: "",
+    designation: "",
+    department: "",
+    email: "",
+    phone: "",
   });
   const [openAlert, setOpenAlert] = useState(false); // State for alert dialog
 
@@ -25,7 +33,10 @@ const AddFacultyForm = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:9453/addfaculty', facultyData);
+      const response = await axios.post(
+        "http://localhost:9453/addfaculty",
+        facultyData,
+      );
       console.log(response.data);
       setOpenAlert(true); // Open alert dialog upon successful submission
       // You can perform other actions here such as clearing the form
@@ -43,7 +54,11 @@ const AddFacultyForm = () => {
     <>
       <NavBar />
       <form style={formStyle} onSubmit={handleSubmit}>
-        <Typography variant='h3' style={{ marginTop: '200px' }}>Add Faculty</Typography><br /><br />
+        <Typography variant="h3" style={{ marginTop: "200px" }}>
+          Add Faculty
+        </Typography>
+        <br />
+        <br />
         <div style={formGroupStyle}>
           <TextField
             label="Name"
@@ -97,7 +112,9 @@ const AddFacultyForm = () => {
           />
         </div>
         <div>
-          <Button type="submit" variant="contained" color="primary">Add Faculty</Button>
+          <Button type="submit" variant="contained" color="primary">
+            Add Faculty
+          </Button>
         </div>
       </form>
 
@@ -105,7 +122,9 @@ const AddFacultyForm = () => {
       <Dialog open={openAlert} onClose={handleCloseAlert}>
         <DialogTitle>Faculty Added</DialogTitle>
         <DialogContent>
-          <Typography variant="body1">Faculty has been successfully added.</Typography>
+          <Typography variant="body1">
+            Faculty has been successfully added.
+          </Typography>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleCloseAlert} color="primary" autoFocus>
@@ -119,13 +138,13 @@ const AddFacultyForm = () => {
 
 // Styles
 const formStyle = {
-  maxWidth: '400px',
-  margin: 'auto',
-  marginTop: '50px',
+  maxWidth: "400px",
+  margin: "auto",
+  marginTop: "50px",
 };
 
 const formGroupStyle = {
-  marginBottom: '15px',
+  marginBottom: "15px",
 };
 
 export default AddFacultyForm;

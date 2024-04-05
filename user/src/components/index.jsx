@@ -13,22 +13,31 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await axios.post("http://localhost:9453/userlogin", data_)
+    await axios
+      .post("http://localhost:9453/userlogin", data_)
       .then((response) => {
         console.log(response.data.status);
-		if(response.data.status === "ok") {
-			alert("Login Successful");
-			localStorage.setItem("token", response.data.data)
-			window.location.href = "/home"
-		}
+        if (response.data.status === "ok") {
+          alert("Login Successful");
+          localStorage.setItem("token", response.data.data);
+          window.location.href = "/home";
+        }
       })
       .catch((error) => {
-		if (error.response || error.response.status || error.response.status === 403) {
-			alert("Access Denied");
-		  }
-		  if (error.response || error.response.status || error.response.status === 401) {
-			alert("Invalid Credentials!");
-		  }
+        if (
+          error.response ||
+          error.response.status ||
+          error.response.status === 403
+        ) {
+          alert("Access Denied");
+        }
+        if (
+          error.response ||
+          error.response.status ||
+          error.response.status === 401
+        ) {
+          alert("Invalid Credentials!");
+        }
       });
   };
 
@@ -61,9 +70,7 @@ const Login = () => {
               Sign in
             </button>
             <button
-              onClick={() =>
-                (window.location.href = "http://localhost:5000/")
-              }
+              onClick={() => (window.location.href = "http://localhost:5000/")}
               className={styles.green_btn}
             >
               Admin login
